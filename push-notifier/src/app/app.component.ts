@@ -7,13 +7,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'push-notifier';
 
   constructor(private router: Router) {}
   
-    navigateTo(route: string) {
-      this.router.navigate([route]);    
+  navigateTo(route: string) {
+    this.router.navigate([route]);    
   }
+
+    
+
+  clicado() {
+    alert("seu site aqui!");
+  }
+  
 
 
 }
+
