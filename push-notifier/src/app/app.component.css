@@ -315,8 +315,8 @@ padding-left: 120px;
 .telaMobile {
     border: 1px solid black;
     border-radius: 10px;
-    width: 280px;
-    height: 580px;
+    width: 270px;
+    height: 560px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -328,7 +328,7 @@ padding-left: 120px;
 }
 
 .tela {
-    background-color: black;
+    color: black;
 }
 
 .titulo {
@@ -338,5 +338,10 @@ padding-left: 120px;
     white-space: nowrap;
     overflow-wrap: break-word;
     text-align: center;
+    margin: 10px;
 }
 
+.botao {
+    width: 100%;
+    align-items: center;
+}
