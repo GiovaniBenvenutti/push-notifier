@@ -14,14 +14,11 @@ export class AppComponent {
   
   navigateTo(route: string) {
     this.router.navigate([route]);    
-  }
-
-    
+  }    
 
   clicado() {
     alert("seu site aqui!");
-  }
-  
+  } 
 
 
 }
