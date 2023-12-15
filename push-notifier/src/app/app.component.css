@@ -312,5 +312,24 @@ padding-top: 50px;
 padding-left: 120px;
 }
 
+.telaMobile {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 280px;
+    height: 580px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    padding-top: 15px;
+    background-color: rgb(215, 252, 229);
+    
+}
+
+.tela{
+    background-color: black;
+}
+
 
 
