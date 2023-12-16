@@ -1,13 +1,13 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { InicioComponent } from './inicio/inicio.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatButtonModule } from '@angular/material/button';
+import { InicioComponent } from './inicio/inicio.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
