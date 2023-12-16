@@ -3,7 +3,9 @@
 
   <div class="telaMobile">
     
-    <p class="titulo">PIANTE MODAS APP</p>
+    <div class="botao">
+      <img src="./assets/icons/Piante.jpeg" alt="Descrição da imagem" style="height: 200px; width: 160px;">
+    </div>
 
     <div class="botao">
       <a  href="https://www.piante.com.br" target="_blank">
@@ -11,13 +13,17 @@
       </a>
     </div>
     
-    <div class="corpo">
-      <button class="logo" style=" background: url('./assets/icons/Piante.jpeg') no-repeat;
-      background-size: 80px, 100px;" (click)="clicado()" ></button>
+    <div class="botao">
+      <a  href="https://www.instagram.com/piante.pijamas" target="_blank">
+        <button mat-raised-button>VER INSTAGRAN</button>
+      </a>
     </div>
 
-    <button routerLink="inicio" 
-    routerLinkActive="ativo">click-me</button>
+    <div class="botao">
+      <button mat-raised-button routerLink="inicio" 
+      routerLinkActive="ativo">ver notificações</button>
+    </div>
+    
     <router-outlet></router-outlet>
 
   </div>

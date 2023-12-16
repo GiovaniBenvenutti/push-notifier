@@ -339,9 +339,15 @@ padding-left: 120px;
     overflow-wrap: break-word;
     text-align: center;
     margin: 10px;
+    margin-bottom: 30px;
 }
 
 .botao {
-    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    margin: 20px;
 }
+
+
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
