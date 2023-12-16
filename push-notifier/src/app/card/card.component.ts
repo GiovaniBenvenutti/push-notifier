@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class CardComponent {
   
-  longText: any = "sua notificação personalizada com detalhes e imagens aqui!";
+  detalhes: any = "sua notificação personalizada com detalhes e imagens aqui!";
 
 }
