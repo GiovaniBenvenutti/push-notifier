@@ -8,18 +8,16 @@ import { Observable, catchError, throwError } from 'rxjs';
 })
 export class NotifyService {
 
-  private API_NOTIFICATIONS = 'http://localhost:9000';
+  private API_NOTIFICATIONS = 'http://localhost:8090/piante/notifications';  
 
-  constructor(
-    private http: HttpClient
-  ) {}
+  constructor( private http: HttpClient ) {}
 
     public selecionar(): Observable<Notification[]> {
       return this.http.get<Notification[]>(this.API_NOTIFICATIONS);
     }
 
-    public entidadeById(idEntidade: number): Observable<Notification> {
-      return this.http.get<Notification>(this.API_NOTIFICATIONS + '/' + idEntidade).pipe();
+    public entidadeById(idnotification: number): Observable<Notification> {
+      return this.http.get<Notification>(this.API_NOTIFICATIONS + '/' + idnotification).pipe();
     }
 
     public cadastrar(obj: Notification): Observable<Notification> {
@@ -30,11 +28,11 @@ export class NotifyService {
       return this.http.put<Notification>(this.API_NOTIFICATIONS, obj);
     }
 
-    public remover(idEntidade: number): Observable<void> {
-      return this.http.delete<void>(this.API_NOTIFICATIONS + '/' + idEntidade);
+    public remover(idnotification: number): Observable<void> {
+      return this.http.delete<void>(this.API_NOTIFICATIONS + '/' + idnotification);
     }
     
-    public buscar(razaosocial: string): Observable<Notification> {
+    public buscar(cardTitulo: string): Observable<Notification> {
       return this.http.get<Notification>(this.API_NOTIFICATIONS);
     } 
   
