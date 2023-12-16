@@ -282,7 +282,6 @@ svg#rocket-smoke {
 }
 }
 
-*/
 
 h1,
 h2,
@@ -299,9 +298,9 @@ margin: 0;
 
 button.logo {
 border-radius: 10px;
-/* Isso fará com que a imagem se ajuste ao botão */
-width: 100px; /* Ajuste para o tamanho desejado */
-height: 120px; /* Ajuste para o tamanho desejado */
+/* Isso fará com que a imagem se ajuste ao botão *
+width: 100px; /* Ajuste para o tamanho desejado *
+height: 120px; /* Ajuste para o tamanho desejado *
 }
 
 .corpo {
@@ -311,6 +310,7 @@ display: block;
 padding-top: 50px;
 padding-left: 120px;
 }
+*/
 
 .telaMobile {
     border: 1px solid black;
