@@ -5,3 +5,10 @@
     align-items: center;
     margin: 20px;
 }
+
+.botaoNotif{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}

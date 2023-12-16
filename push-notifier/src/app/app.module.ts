@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 
 import { InicioComponent } from './inicio/inicio.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
