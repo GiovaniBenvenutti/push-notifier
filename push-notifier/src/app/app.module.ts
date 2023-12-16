@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
     }),
     BrowserAnimationsModule,
     MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

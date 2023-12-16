@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent {
+  longText: any = "sua notificação personalizada com detalhes e imagens!";
 
 }
