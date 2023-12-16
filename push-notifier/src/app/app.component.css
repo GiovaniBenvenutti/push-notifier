@@ -327,27 +327,4 @@ padding-left: 120px;
     
 }
 
-.tela {
-    color: black;
-}
-
-.titulo {
-    color: darkgreen;
-    font-size: 25px;
-    width: 100%;
-    white-space: nowrap;
-    overflow-wrap: break-word;
-    text-align: center;
-    margin: 10px;
-    margin-bottom: 30px;
-}
-
-.botao {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-}
-
-
 /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */

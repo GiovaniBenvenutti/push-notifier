@@ -7,7 +7,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { InicioComponent } from './inicio/inicio.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
@@ -26,7 +26,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
       registrationStrategy: 'registerWhenStable:30000'
     }),
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

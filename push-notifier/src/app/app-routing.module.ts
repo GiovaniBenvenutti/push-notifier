@@ -7,7 +7,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 
 const routes: Routes = [  
   { path : 'inicio', component: InicioComponent },
-  { path : 'notifications', component: NotificationsComponent }
+  { path : 'notifications', component: NotificationsComponent },  
+  { path : '', redirectTo: 'inicio', pathMatch: 'full' }
 ];
 
 @NgModule({
