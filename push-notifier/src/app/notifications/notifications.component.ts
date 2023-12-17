@@ -1,6 +1,8 @@
+import { RetornoService } from './../services/retorno.service';
 import { NotifyService } from './../services/notify.service';
 import { Component, } from '@angular/core';
 import { Notification } from './../model/notification';
+import { Retorno } from '../model/retorno';
 
 
 @Component({
@@ -12,8 +14,11 @@ export class NotificationsComponent {
 
   notification: Notification = new Notification();
   notificationArray: Notification[] = []; 
+
+  retorno: Retorno = new Retorno();
+  retornoArray: Retorno[] = [];
   
-  constructor(public notifyService: NotifyService) {};
+  constructor(public notifyService: NotifyService, public retornoService: RetornoService ) {};
     
   selecionar(): void {
     this.notifyService.selecionar()
@@ -22,14 +27,30 @@ export class NotificationsComponent {
 
   clicado(click: number) {
     if(click) {
-      alert('clicou botao notify ' + click);
+      this.retorno.clicado = true;
+      this.retorno.idnotification = click;
+      this.enviaRetorno();
+      //alert('clicou botao notify ' + click);
     }
   }
   
   visto(viu: number){
     if (viu) {
-      alert('visualizou notify ' + viu);
+      this.retorno.visto = true;
+      this.retorno.idnotification = viu;
+      this.enviaRetorno();
+      //alert('visualizou notify ' + viu);
     }
+  }
+
+  enviaRetorno(): void {
+    this.retornoService.cadastrar(this.retorno)
+    .subscribe(retorno => {
+      this.retornoArray.push(retorno);
+      this.retorno = new Retorno();
+      //alert('Retorno enviado !');      
+      
+    });
   }
   
   
