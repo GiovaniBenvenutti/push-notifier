@@ -12,34 +12,31 @@ export class CardComponent implements OnInit, AfterViewInit {
   @Output() clicado = new EventEmitter<boolean>();
   @Output() visto = new EventEmitter<boolean>();
   @ViewChild('card') card!: ElementRef;
-  
+
   observer!: IntersectionObserver;
-  
+
   onButtonClick() {
     this.clicado.emit(true);
-  }  
-
-  ngAfterViewInit() {
-    if (this.card && this.card.nativeElement) {
-      this.observer.observe(this.card.nativeElement);
-    }
   }
-  
-  
+
+  onVisto() {
+    this.visto.emit(true);
+  }
+
   ngOnInit() {
-    // Inicialização da propriedade 'observer'
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('viewed');
-          console.log('Card visualizado:', entry.target);
-          this.observer.unobserve(entry.target);
           this.visto.emit(true);
         }
       });
     });
   }
 
-    
+  ngAfterViewInit() {
+    if (this.card) {
+      this.onVisto();
+    }
+  }
   
 }
