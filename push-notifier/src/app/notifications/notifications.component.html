@@ -1,3 +1,5 @@
-<app-card></app-card>
-
-<app-card></app-card>
+<div >
+    <div *ngFor="let notification of notificationArray" >
+        <app-card [notification]="notification"></app-card>
+    </div>
+</div>

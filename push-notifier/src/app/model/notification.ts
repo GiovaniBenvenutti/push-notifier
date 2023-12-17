@@ -2,24 +2,24 @@
 export class Notification {
     
   idnotification!: number;
-  cardTitulo!: string;
+  cardtitulo!: string;
   detalhes!: any;
   link!: string;  
   
   constructor(
     idnotification?: number,
-    cardTitulo?: string,
+    cardtitulo?: string,
     detalhes?: any,
     link?: string
   ) {
     this.idnotification = idnotification || 0;
-    this.cardTitulo = cardTitulo || '';
+    this.cardtitulo = cardtitulo || '';
     this.detalhes = detalhes || '';
     this.link = link || '';
   }
   
   toString(): string {
-    return `Notification: ${this.idnotification}, ${this.cardTitulo}, 
+    return `Notification: ${this.idnotification}, ${this.cardtitulo}, 
                       ${this.detalhes}, ${this.link}`;
     }
   

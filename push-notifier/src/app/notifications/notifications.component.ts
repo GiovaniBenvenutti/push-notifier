@@ -125,5 +125,6 @@ export class NotificationsComponent {
 
   ngOnInit() {
     this.selecionar();
+    //console.log(this.notificationArray.toString());
   }
 }

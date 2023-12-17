@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Notification } from './../model/notification';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
   
-  detalhes: any = "sua notificação personalizada com detalhes e imagens aqui!";
+  @Input() notification: Notification = new Notification();
 
+  ngOnInit() {
+      
+  }
+  
+  //detalhes: any = "sua notificação personalizada com detalhes e imagens aqui!";
+  
 }
