@@ -1,5 +1,11 @@
 <div >
     <div *ngFor="let notification of notificationArray" >
-        <app-card [notification]="notification"></app-card>
+        <app-card [notification]="notification"
+        
+        (clicado)="clicado($event)"
+        
+        (visto)="visto($event)"
+
+    ></app-card>
     </div>
 </div>

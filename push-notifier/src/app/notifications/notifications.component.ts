@@ -11,17 +11,41 @@ import { Notification } from './../model/notification';
 export class NotificationsComponent {
 
   notification: Notification = new Notification();
-
   notificationArray: Notification[] = []; 
   
   constructor(public notifyService: NotifyService) {};
-  
-
-  
+    
   selecionar(): void {
     this.notifyService.selecionar()
     .subscribe(retorno => this.notificationArray = retorno);
   } 
+
+  clicado(click: boolean) {
+    if(click) {
+      alert('o botao foi clicado');
+    }
+  }
+  
+  visto(viu: boolean){
+    if (viu) {
+      alert('viu um novo card');
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ngOnInit() {
+    this.selecionar();
+  }
+
+
 
 
   /*
@@ -123,8 +147,5 @@ export class NotificationsComponent {
 
   */
 
-  ngOnInit() {
-    this.selecionar();
-    //console.log(this.notificationArray.toString());
-  }
+  
 }
