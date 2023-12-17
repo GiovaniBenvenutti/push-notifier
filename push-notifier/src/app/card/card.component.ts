@@ -9,34 +9,20 @@ import { Notification } from './../model/notification';
 export class CardComponent implements OnInit, AfterViewInit {
   
   @Input() notification: Notification = new Notification();
-  @Output() clicado = new EventEmitter<boolean>();
-  @Output() visto = new EventEmitter<boolean>();
+  @Output() clicado = new EventEmitter<number>();
+  @Output() visto = new EventEmitter<number>();
   @ViewChild('card') card!: ElementRef;
 
-  observer!: IntersectionObserver;
-
   onButtonClick() {
-    this.clicado.emit(true);
-  }
-
-  onVisto() {
-    this.visto.emit(true);
-  }
-
-  ngOnInit() {
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          this.visto.emit(true);
-        }
-      });
-    });
+    this.clicado.emit(this.notification.idnotification);
   }
 
   ngAfterViewInit() {
     if (this.card) {
-      this.onVisto();
+      this.visto.emit(this.notification.idnotification);
     }
   }
+
+  ngOnInit() {} 
   
 }

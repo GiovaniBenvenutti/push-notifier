@@ -20,15 +20,15 @@ export class NotificationsComponent {
     .subscribe(retorno => this.notificationArray = retorno);
   } 
 
-  clicado(click: boolean) {
+  clicado(click: number) {
     if(click) {
-      alert('o botao foi clicado');
+      alert('clicou botao notify ' + click);
     }
   }
   
-  visto(viu: boolean){
+  visto(viu: number){
     if (viu) {
-      alert('viu um novo card');
+      alert('visualizou notify ' + viu);
     }
   }
   
