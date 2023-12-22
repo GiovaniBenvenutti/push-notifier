@@ -3,6 +3,7 @@ import { NotifyService } from './../services/notify.service';
 import { Component, } from '@angular/core';
 import { Notification } from './../model/notification';
 import { Retorno } from '../model/retorno';
+import { ConexaoService } from '../services/conexao.service';
 
 
 @Component({
@@ -18,7 +19,10 @@ export class NotificationsComponent {
   retorno: Retorno = new Retorno();
   retornoArray: Retorno[] = [];
   
-  constructor(public notifyService: NotifyService, public retornoService: RetornoService ) {};
+  constructor(
+    public notifyService: NotifyService, 
+    public retornoService: RetornoService
+  ) {};
     
   selecionar(): void {
     this.notifyService.selecionar()
@@ -39,13 +43,13 @@ export class NotificationsComponent {
       this.retorno.visto = true;
       this.retorno.idnotification = viu;
       this.retorno.recebimento = new Date();
-      this.enviaRetorno();
-      
+      this.enviaRetorno();      
       //alert(this.retorno.recebimento);  
     }
   }
 
   enviaRetorno(): void {
+    this.retornoService.salvar(this.retorno);
     this.retornoService.cadastrar(this.retorno)
     .subscribe(retorno => {
       this.retornoArray.push(retorno);

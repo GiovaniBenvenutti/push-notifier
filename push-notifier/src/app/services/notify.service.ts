@@ -2,6 +2,7 @@ import { Notification } from './../model/notification';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
+import { ConexaoService } from './conexao.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,10 @@ export class NotifyService {
 
   private API_NOTIFICATIONS = 'http://localhost:8090/piante/notifications';  
 
-  constructor( private http: HttpClient ) {}
+  constructor( 
+    private http: HttpClient, 
+    public conexao: ConexaoService
+  ) {}
 
     public selecionar(): Observable<Notification[]> {
       return this.http.get<Notification[]>(this.API_NOTIFICATIONS);
