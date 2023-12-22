@@ -29,8 +29,8 @@ export class NotificationsComponent {
     if(click) {
       this.retorno.clicado = true;
       this.retorno.idnotification = click;
+      this.retorno.recebimento = new Date();
       this.enviaRetorno();
-      //alert('clicou botao notify ' + click);
     }
   }
   
@@ -38,8 +38,10 @@ export class NotificationsComponent {
     if (viu) {
       this.retorno.visto = true;
       this.retorno.idnotification = viu;
+      this.retorno.recebimento = new Date();
       this.enviaRetorno();
-      //alert('visualizou notify ' + viu);
+      
+      //alert(this.retorno.recebimento);  
     }
   }
 
@@ -47,8 +49,7 @@ export class NotificationsComponent {
     this.retornoService.cadastrar(this.retorno)
     .subscribe(retorno => {
       this.retornoArray.push(retorno);
-      this.retorno = new Retorno();
-      //alert('Retorno enviado !');      
+      this.retorno = new Retorno();    
       
     });
   }
