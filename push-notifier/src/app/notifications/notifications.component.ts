@@ -50,18 +50,16 @@ export class NotificationsComponent {
 
   enviaRetorno(): void {
     this.retornoService.salvar(this.retorno);
+    this.retorno = new Retorno();
+    /*
     this.retornoService.cadastrar(this.retorno)
     .subscribe(retorno => {
       this.retornoArray.push(retorno);
       this.retorno = new Retorno();    
       
     });
-  }
-  
-  
-  
-  
-  
+    */
+  } 
   
   
   
@@ -74,6 +72,18 @@ export class NotificationsComponent {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+  
   /*
 
 

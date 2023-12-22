@@ -3,31 +3,67 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { ConexaoService } from './conexao.service';
+import Dexie from 'dexie';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RetornoService { private API_RETORNO = 'http://localhost:8090/piante/retorno';  
+export class RetornoService {
+  
+  private API_RETORNO = 'http://localhost:8090/piante/retorno';  
+  private indexdDB: Dexie | undefined;
+  private table: Dexie.Table<Retorno, any> | undefined;
 
-constructor( 
-  private http: HttpClient, 
-  public conexao: ConexaoService
-) {
-  this.ouvirStatusConexao();
-}
+  constructor( 
+    private http: HttpClient, 
+    public conexao: ConexaoService
+  ) {
+    this.ouvirStatusConexao();
+    this.iniciarIndexedDB();
+  }
+
+  private iniciarIndexedDB() {
+    this.indexdDB = new Dexie('db-retorno');
+    this.indexdDB.version(1).stores({
+      retorno: 'idretorno'
+    });
+    this.table = this.indexdDB.table('retorno');
+  }
+
+
 
 
   private salvarNaAPI(retorno: Retorno) {
     this.http.post<Retorno>(this.API_RETORNO, retorno)
       .subscribe(
-        () => alert('retorno enviado para a API'),
-        (err) => alert('erro ao salvar na API')
+        () => console.log('retorno enviado para a API'),
+        (err) => console.log('erro ao salvar na API')
       );
   }
 
-  private salvarNoIndexDB(retorno: Retorno) {
-    alert('quero salvar' + retorno + 'no indexed-DB')
+  private async salvarNoIndexDB(retorno: Retorno) {
+    try {  
+      await this.table?.add(retorno);
+      const todosRetornos = await this.table?.toArray();
+      console.log('retornos salvos: ', todosRetornos);
+    } catch {
+      alert('erro ao salvar no indexedDB');      
+    }
   }
+
+  private async enviarIndexedDBparaAPI() {    
+    const todosRetornos = await this.table?.toArray();
+    if (todosRetornos) {
+      for (const retorno of todosRetornos) {
+        this.salvarNaAPI(retorno);
+        await this.table?.delete(retorno.idretorno);
+      }
+    }
+  }
+
+
+
+
 
   public salvar(retorno: Retorno) {
     if (this.conexao.isOnline) {
@@ -37,21 +73,11 @@ constructor(
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
   private ouvirStatusConexao() {
     this.conexao.statusConexao
     .subscribe(online => {
       if (online) {
+        this.enviarIndexedDBparaAPI();
         console.log('estou on-line, vou enviar do banco local pra api');
       } else {
         console.log('estou off-line, vou salvar no banco local');
@@ -59,7 +85,7 @@ constructor(
     })
   }
 
-  
+
   
   /* ************************************************************************ */
 
