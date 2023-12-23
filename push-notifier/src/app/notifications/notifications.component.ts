@@ -3,6 +3,7 @@ import { NotifyService } from './../services/notify.service';
 import { Component, } from '@angular/core';
 import { Notification } from './../model/notification';
 import { Retorno } from '../model/retorno';
+import { last } from 'rxjs';
 
 
 
@@ -17,7 +18,7 @@ export class NotificationsComponent {
   notificationArray: Notification[] = []; 
 
   retorno: Retorno = new Retorno();
-  //retornoArray: Retorno[] = [];
+  retornoArray: Retorno[] = [];
   
   constructor(
     public notifyService: NotifyService, 
@@ -34,7 +35,8 @@ export class NotificationsComponent {
       this.retorno.clicado = true;
       this.retorno.idnotification = click;
       this.retorno.recebimento = new Date();
-      this.enviaRetorno();
+      this.retornoArray.push(this.retorno);
+      this.enviaRetorno(this.retorno);
     }
   }
   
@@ -43,12 +45,13 @@ export class NotificationsComponent {
       this.retorno.visto = true;
       this.retorno.idnotification = viu;
       this.retorno.recebimento = new Date();
-      this.enviaRetorno();  
+      this.retornoArray.push(this.retorno);
+      this.enviaRetorno(this.retorno);  
     }
   }
 
-  enviaRetorno(): void {
-    this.retornoService.salvar(this.retorno);
+  enviaRetorno(ret: Retorno): void {
+    this.retornoService.salvar(ret);
     this.retorno = new Retorno();
   } 
   

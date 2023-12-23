@@ -44,8 +44,6 @@ export class RetornoService {
   private async salvarNoIndexDB(retorno: Retorno) {
     try {  
       await this.table?.add(retorno);
-      const todosRetornos = await this.table?.toArray();
-      console.log('retornos salvos: ', todosRetornos);
     } catch {
       alert('erro ao salvar no indexedDB');      
     }
@@ -56,15 +54,11 @@ export class RetornoService {
     if (todosRetornos) {
       for (const retorno of todosRetornos) {
         this.salvarNaAPI(retorno);
-        //await this.table?.delete(retorno.idretorno);
+        await this.table?.delete(retorno.recebimento);
         console.log('banco local apagado');
       }
     }
   }
-
-
-
-
 
   public salvar(retorno: Retorno) {
     if (this.conexao.isOnline) {
