@@ -40,6 +40,7 @@ export class RetornoService {
         (err) => console.log('erro ao salvar na API')
       );
   }
+  
 
   private async salvarNoIndexDB(retorno: Retorno) {
     try {  
