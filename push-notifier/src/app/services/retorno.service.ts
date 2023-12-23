@@ -1,7 +1,7 @@
 import { Retorno } from './../model/retorno';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ConexaoService } from './conexao.service';
 import Dexie from 'dexie';
 
@@ -25,7 +25,7 @@ export class RetornoService {
   private iniciarIndexedDB() {
     this.indexdDB = new Dexie('db-retorno');
     this.indexdDB.version(1).stores({
-      retorno: 'idretorno'
+      retorno: 'recebimento'
     });
     this.table = this.indexdDB.table('retorno');
   }
@@ -56,8 +56,8 @@ export class RetornoService {
     if (todosRetornos) {
       for (const retorno of todosRetornos) {
         this.salvarNaAPI(retorno);
-        await this.table?.delete(retorno.idretorno);
-        alert('banco local apagado');
+        //await this.table?.delete(retorno.idretorno);
+        console.log('banco local apagado');
       }
     }
   }
@@ -88,7 +88,7 @@ export class RetornoService {
 
 
   
-  /* ************************************************************************ */
+  /* ************************************************************************
 
 
 
@@ -119,5 +119,7 @@ export class RetornoService {
   public buscar(idnotification: number): Observable<Retorno> {
     return this.http.get<Retorno>(this.API_RETORNO);
   } 
+
+  */
 
 }
