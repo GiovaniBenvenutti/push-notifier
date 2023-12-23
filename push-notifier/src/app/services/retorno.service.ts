@@ -57,6 +57,7 @@ export class RetornoService {
       for (const retorno of todosRetornos) {
         this.salvarNaAPI(retorno);
         await this.table?.delete(retorno.idretorno);
+        alert('banco local apagado');
       }
     }
   }
