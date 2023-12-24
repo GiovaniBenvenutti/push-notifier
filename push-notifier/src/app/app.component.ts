@@ -11,13 +11,7 @@ export class AppComponent {
 
   title = 'push-notifier';
 
-  constructor(private router: Router, private updates: SwUpdate) {
-
-    updates.available.subscribe(event => {
-      updates.activateUpdate().then(() => document.location.reload());
-    })
-    
-  }
+  constructor(private router: Router) {  }
   
   navigateTo(route: string) {
     this.router.navigate([route]);    

@@ -8,6 +8,24 @@
   "start_url": "./",
   "icons": [
     {
+      "src": "assets/icons/logoMini.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/logoGrande.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/nomePiante.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
       "src": "assets/icons/icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png",
