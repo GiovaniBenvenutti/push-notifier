@@ -40,7 +40,7 @@ export class RetornoService {
         (err) => console.log('erro ao salvar na API')
       );
   }
-  
+
 
   private async salvarNoIndexDB(retorno: Retorno) {
     try {  
@@ -55,7 +55,7 @@ export class RetornoService {
     if (todosRetornos) {
       for (const retorno of todosRetornos) {
         this.salvarNaAPI(retorno);
-        await this.table?.delete(retorno.recebimento);
+        this.table!.delete(retorno);
         console.log('banco local apagado');
       }
     }
