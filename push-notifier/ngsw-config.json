@@ -26,7 +26,19 @@
           "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
         ]
       }
+    }    
+  ], "dataGroups": [
+    {
+      "name": "notification-api",
+      "urls": [
+        "http://localhost:8090/piante/notifications"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 2000,
+        "maxAge": "12h",
+        "timeout": "5s"
+      }
     }
-    
   ]
 }
