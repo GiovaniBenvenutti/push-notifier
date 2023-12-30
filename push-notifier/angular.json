@@ -21,7 +21,7 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/assets/icons/logoMini.png",
+              "src/assets/icons/logo_72.png",
               "src/assets",
               "src/manifest.webmanifest"
             ],
@@ -87,7 +87,7 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              "src/assets/icons/logoMini.png",
+              "src/assets/icons/logo_72.png",
               "src/assets",
               "src/manifest.webmanifest"
             ],
