@@ -8,7 +8,7 @@
   "start_url": "./",
   "icons": [
     {
-      "src": "assets/icons/logoMini.png",
+      "src": "assets/icons/logoMini_54.png",
       "sizes": "54x54",
       "type": "image/png",
       "purpose": "maskable any"
@@ -20,13 +20,13 @@
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/logoGrande.png",
+      "src": "assets/icons/logoGrande_512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/nomePiante.png",
+      "src": "assets/icons/nomePiante_512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
