@@ -44,30 +44,33 @@ export class RetornoService {
   private async salvarNoIndexDB(retorno: Retorno) {
     try {  
       await this.table?.add(retorno);
-      alert('dados salvos no indexedDB com sucesso !')
+      //alert('dados salvos no indexedDB com sucesso !')
     } catch {
-      alert('erro ao salvar no indexedDB');      
+      //alert('erro ao salvar no indexedDB');      
     }
   }
 
-  private async enviarIndexedDBparaAPI() {    
+  private async enviarIndexedDBparaAPI() {   
+        
     const todosRetornos = await this.table?.toArray();
     if (todosRetornos) {
       for (const retorno of todosRetornos) {
         this.salvarNaAPI(retorno);
-        this.table!.delete(retorno.recebimento);
-        alert('banco local apagado');
+        //this.table!.delete(retorno.recebimento);
+        //alert('banco local apagado');
       }
     }
+    this.table?.clear();
+    //alert('tabela apagada do indexedDB');
   }
 
   public salvar(retorno: Retorno) {
     if (this.conexao.isOnline) {
       this.salvarNaAPI(retorno);
-      alert('retorno service chamou salvaNaApi');
+      //alert('retorno service chamou salvaNaApi');
     } else {
       this.salvarNoIndexDB(retorno);
-      alert('retorno service chamou salvaNoIndexedDB');
+      //alert('retorno service chamou salvaNoIndexedDB');
     }
   }
 
@@ -76,11 +79,11 @@ export class RetornoService {
     .subscribe(online => {
       if (online) {
         this.enviarIndexedDBparaAPI();
-        console.log('estou on-line, vou enviar do banco local pra api');        
-        alert('retorno service chamou enviarIndexedDB para Api');
+        //console.log('estou on-line, vou enviar do banco local pra api');        
+        //alert('retorno service chamou enviarIndexedDB para Api');
       } else {        
-        console.log('estou off-line, vou salvar no banco local');
-        alert('retorno service vai salvar no indexedDB...');
+        //console.log('estou off-line, vou salvar no banco local');
+        //alert('retorno service vai salvar no indexedDB...');
       }
     })
   }
