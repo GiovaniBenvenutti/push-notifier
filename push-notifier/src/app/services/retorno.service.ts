@@ -74,6 +74,7 @@ export class RetornoService {
     }
   }
 
+
   private ouvirStatusConexao() {
     this.conexao.statusConexao
     .subscribe(online => {
@@ -97,8 +98,6 @@ export class RetornoService {
 
 
 
-
-  
   
   /* ************************************************************************
 
