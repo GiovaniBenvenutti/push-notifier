@@ -10,7 +10,6 @@
           "/favicon.ico",
           "/index.html",
           "/manifest.webmanifest",
-          "/app**",
           "/*.css",
           "/*.js"
         ]
@@ -35,7 +34,7 @@
       ],
       "cacheConfig": {
         "strategy": "freshness",
-        "maxSize": 2000,
+        "maxSize": 200,
         "maxAge": "12h",
         "timeout": "5s"
       }

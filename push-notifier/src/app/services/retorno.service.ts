@@ -1,7 +1,6 @@
 import { Retorno } from './../model/retorno';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ConexaoService } from './conexao.service';
 import Dexie from 'dexie';
 
@@ -45,6 +44,7 @@ export class RetornoService {
   private async salvarNoIndexDB(retorno: Retorno) {
     try {  
       await this.table?.add(retorno);
+      alert('dados salvos no indexedDB com sucesso !')
     } catch {
       alert('erro ao salvar no indexedDB');      
     }
@@ -55,8 +55,8 @@ export class RetornoService {
     if (todosRetornos) {
       for (const retorno of todosRetornos) {
         this.salvarNaAPI(retorno);
-        this.table!.delete(retorno);
-        console.log('banco local apagado');
+        this.table!.delete(retorno.recebimento);
+        alert('banco local apagado');
       }
     }
   }
@@ -64,8 +64,10 @@ export class RetornoService {
   public salvar(retorno: Retorno) {
     if (this.conexao.isOnline) {
       this.salvarNaAPI(retorno);
+      alert('retorno service chamou salvaNaApi');
     } else {
       this.salvarNoIndexDB(retorno);
+      alert('retorno service chamou salvaNoIndexedDB');
     }
   }
 
@@ -74,9 +76,11 @@ export class RetornoService {
     .subscribe(online => {
       if (online) {
         this.enviarIndexedDBparaAPI();
-        console.log('estou on-line, vou enviar do banco local pra api');
-      } else {
+        console.log('estou on-line, vou enviar do banco local pra api');        
+        alert('retorno service chamou enviarIndexedDB para Api');
+      } else {        
         console.log('estou off-line, vou salvar no banco local');
+        alert('retorno service vai salvar no indexedDB...');
       }
     })
   }
