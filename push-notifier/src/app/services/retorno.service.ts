@@ -10,7 +10,8 @@ export class RetornoService extends TableService<Retorno> {
   constructor( 
     protected override injector: Injector
   ) {
-    super(injector, 'retorno', 'http://localhost:8090/piante/retorno');
+    /*                              urlApi                   nomeDB   nomeTabela       id     */
+    super(injector, 'http://localhost:8090/piante/retorno', 'novo-DB', 'retorno', 'recebimento');
   }
 
 }

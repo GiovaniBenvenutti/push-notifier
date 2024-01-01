@@ -16,8 +16,10 @@ export abstract class TableService<T> {     // <T extends {id: string}>
 
   constructor(
     protected injector: Injector,
+    protected urlApi: string,
+    protected nomeDB: string,
     protected nomeTabela: string,
-    protected urlApi: string
+    protected id: string
   ) { 
     this.http = this.injector.get(HttpClient);
     this.conexao = this.injector.get(ConexaoService);
@@ -27,9 +29,9 @@ export abstract class TableService<T> {     // <T extends {id: string}>
   }
 
   private iniciarIndexedDB() {
-    this.indexdDB = new Dexie('db-retorno');
+    this.indexdDB = new Dexie(this.nomeDB);
     this.indexdDB.version(1).stores({
-      [this.nomeTabela]: 'recebimento'
+      [this.nomeTabela]: this.id
     });
     this.table = this.indexdDB.table(this.nomeTabela);
   }
@@ -61,12 +63,12 @@ export abstract class TableService<T> {     // <T extends {id: string}>
     if (todaTabela) {
       for (const table of todaTabela) {
         this.salvarNaAPI(table);
-        //this.table!.delete(table.id);
-        //alert('banco local apagado');
+        //this.table!.delete([this.id]);  //
+        //alert('banco local apagado');  //
       }
     }
     await this.table?.clear();
-    //alert('tabela apagada do indexedDB');
+    alert('tabela apagada do indexedDB');
   }
 
   public salvar(table: T) {
