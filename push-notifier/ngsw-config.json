@@ -7,7 +7,7 @@
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/favicon.ico",
+          "/assets/icons/logoMini_54.png",
           "/index.html",
           "/manifest.webmanifest",
           "/*.css",
@@ -34,9 +34,9 @@
       ],
       "cacheConfig": {
         "strategy": "freshness",
-        "maxSize": 200,
+        "maxSize": 20,
         "maxAge": "12h",
-        "timeout": "5s"
+        "timeout": "2s"
       }
     }
   ]
