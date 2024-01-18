@@ -17,10 +17,9 @@ export class AppComponent implements OnInit{
       private router: Router,
       private swUpDate: SwUpdate,
 
-
       private http: HttpClient,
       private swPush: SwPush
-  ){
+    ){
 
     //      AQUI COMECEI A IMPLANTAR O RECEBIMENTO DAS PUSH NOTIFICATION...
 
@@ -37,10 +36,27 @@ export class AppComponent implements OnInit{
     });
 
 
+  }
+
+
+  subscribeToNotificationsClick(): void {
+    this.swPush.notificationClicks
+      .subscribe(result => {
+        alert('usuario clicou na ação' + result.action);
+      });
+  }
+
+
+
+
+
+
+
+
 
 
     //      AQUI TERMINOU A TENTATIVA
-  }
+  
 
   reloadCache(){
     if(this.swUpDate.isEnabled){
@@ -54,6 +70,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     this.reloadCache();
+    this.subscribeToNotificationsClick();    // metodo acrecentado com o recebimento de notofocações
   }
   
   navigateTo(route: string) {
@@ -74,3 +91,5 @@ export class AppComponent implements OnInit{
 
 
 }
+
+
