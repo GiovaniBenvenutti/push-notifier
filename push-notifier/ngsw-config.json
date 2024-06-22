@@ -30,7 +30,7 @@
     {
       "name": "notification-api",
       "urls": [
-        "http://localhost:8090/piante/notifications"
+        "http://vendamaisapp.com:8080/piante/notifications"
       ],
       "cacheConfig": {
         "strategy": "freshness",

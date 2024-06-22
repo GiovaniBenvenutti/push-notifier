@@ -3,13 +3,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { ConexaoService } from './conexao.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotifyService {
 
-  private API_NOTIFICATIONS = 'http://localhost:8090/piante/notifications';  
+        //        ngrok start --config=./ngrok.yml --all
+
+        //        http://localhost:8080
+
+        //        http://vendamaisapp.com:8080   --> não estava carregando os dados da api
+
+  private API_NOTIFICATIONS = environment.apiUrl + ':8080' + '/piante/notifications';  
 
   constructor( 
     private http: HttpClient, 
@@ -20,6 +27,7 @@ export class NotifyService {
       return this.http.get<Notification[]>(this.API_NOTIFICATIONS);
     }
 
+    /*
     public entidadeById(idnotification: number): Observable<Notification> {
       return this.http.get<Notification>(this.API_NOTIFICATIONS + '/' + idnotification).pipe();
     }
@@ -39,5 +47,6 @@ export class NotifyService {
     public buscar(cardTitulo: string): Observable<Notification> {
       return this.http.get<Notification>(this.API_NOTIFICATIONS);
     } 
+    */
   
 }

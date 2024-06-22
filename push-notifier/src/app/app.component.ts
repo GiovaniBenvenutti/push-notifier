@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwPush, SwUpdate } from '@angular/service-worker';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -28,11 +27,11 @@ export class AppComponent implements OnInit{
     })
     .then(subscription => {
       console.log('usuario permitu envio de notificações');
-      this.http.post('http://localhost:9000/add-subscription', subscription)
+      this.http.post('http://vendamaisapp.com:8080/add-subscription', subscription)
         .subscribe();
     })
     .catch(err => {
-      console.error('usuario recusou o recebimento denotificações', err);
+      console.error('usuário recusou o recebimento denotificações', err);
     });
 
 
@@ -70,7 +69,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     this.reloadCache();
-    this.subscribeToNotificationsClick();    // metodo acrecentado com o recebimento de notofocações
+    this.subscribeToNotificationsClick();    // metodo acrecentado com o recebimento de notificações
   }
   
   navigateTo(route: string) {
